@@ -17,7 +17,7 @@ class Tree {
         if (!this.root) return false;
         let found = false;
         let traverse = (node) => {
-            if (!!found) return
+            if (!!found) return;
             if (node.val === val) {
                 found = node;
                 return;
@@ -80,7 +80,7 @@ class Tree {
         let found = false;
         let traverse = (node) => {
             for (let child of node.children) {
-                if (!!found) return
+                if (!!found) return;
                 traverse(child);
             }
             if (node.val === val) {
@@ -92,10 +92,18 @@ class Tree {
         return found;
     }
     dfsAllInOrder() {
-
-    }
-    dfsOneInOrder() {
-        
+        let data = [];
+        if (!this.root) return data;
+        let traverse = (node) => {
+            if (node == null) return;
+            for (let i = 0; i < node.children.length - 1; i++) {
+                traverse(node.children[i]);
+            }
+            data = [...data, node.val];
+            traverse(node.children[node.children.length - 1]);
+        };
+        traverse(this.root);
+        return data;
     }
 }
 
@@ -106,4 +114,3 @@ tree.dfInsertPre(15, 10);
 tree.dfInsertPre(3, 6);
 tree.dfInsertPre(8, 6);
 tree.dfInsertPre(20, 15);
-
