@@ -1,0 +1,2 @@
+# A collection of data structures and algorithms in Javascript
+intended for personal use/reference but feel free to use if they're helpful to you. A collection of basic data structures in JS. implemented as a part of a [JS A&DS class](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/) on Udemy, but I extended most of them to be more generalized solutions / not rely on built in data structures like arrays that don't scale well for large N.  
