@@ -52,8 +52,24 @@ class UndirectedGraph {
         return resultsList
     }
 
-    breadthFirstSearch() {
+    breadthFirstTraversal(start) {
+        let visited = {}, result = [];
+        let queue = [start];
 
+        while (queue.length) {
+            let vertex = queue.shift();
+
+            if (visited[vertex] !== true) {
+                visited[vertex] = true;
+                result.push(vertex);
+            }
+
+            this.adjacencyList[vertex].forEach(neighbour => {
+                if (!visited[neighbour]) queue.push(neighbour);
+            });
+        }
+
+        return result;
     }
 }
 
